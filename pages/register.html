@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <script src="../js/register.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Veterinaria Turrialba</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="login.html">Inicio de sesión</a></li>
+                <li><a href="animation.html">Animación</a></li>
+                <li><a href="newform.html">Registrate</a></li>
+                <li><a href="speciality.html">Registrate</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <div class="form">
+                <h2> Iniciar seccion</h2>
+                <form id="form_register" method="post">
+                    <div class="card">
+                        <label> Cedula: </label>
+                        <input id="card" type="text" required></input>
+
+                    </div>
+                    <div class="name_complete">
+                        <label> Nombre: </label>
+                        <input id="name_complete" type="text" required></input>
+
+                    </div>
+                    <div class="last_name">
+                        <label> Apellidos: </label>
+                        <input id="last_name" type="text" required></input>
+
+                    </div>
+                    <div class="phone_number">
+                        <label> Numero de telefono: </label>
+                        <input id="phone_number" type="text" required></input>
+
+                    </div>
+                    <div class="email">
+                        <label> Email: </label>
+                        <input id="email" type="email" required></input>
+
+                    </div>
+                    <div class="password">
+                        <label> Contraseña: </label>
+                        <input id="password" type="password" required></input>
+
+                    </div>
+                    <div class="password_confirmed">
+                        <label> Confirmacion de Contraseña: </label>
+                        <input id="password_confirmed" type="password" required></input>
+
+                    </div>
+                    <input id="bottoningresar" type="submit" value="Ingresar"></input>
+                </form>
+            </div>
+        </div>
+        <!-- modal 1 -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p id="modal-message"></p>
+            </div>
+          </div>
+        <!-- /modal 1 -->
+    </main>
+    <footer>
+        <p>Siguenos en redes sociales</p>
+        <div>
+            <a href="http//facebook.com"> Facebook </a>
+        </div>
+        <P>Derechos de autor 2024 </P>
+    </footer>
+</body>
+
+</html>
