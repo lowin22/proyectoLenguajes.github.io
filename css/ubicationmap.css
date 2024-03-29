@@ -1,0 +1,28 @@
+
+
+.container-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%; /* Ancho máximo para el contenedor */
+}
+.ubication-map {
+    width: 100%;
+    max-width: 600px; /* Ancho máximo para el mapa */
+    margin-bottom: 20px; /* Espacio entre el mapa y el texto */
+}
+
+.container-map .content-map .text {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Para alinear el texto verticalmente */
+    align-items: center; /* Centra el texto horizontalmente */
+    justify-content: center; /* Centra el texto verticalmente */
+    text-align: center;
+}
+
+.ubication-map iframe {
+    width: 100%;
+    height: auto;
+}

@@ -3,45 +3,128 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/general.css" />
         <link rel="stylesheet" href="./css/navbar.css" />
         <link rel="stylesheet" href="./css/footer.css" />
         <link rel="stylesheet" href="./css/carouselimage.css" />
+        <link rel="stylesheet" href="./css/ubicationmap.css" />
+        <link rel="stylesheet" href="./css/heartanimation.css" />
+        
 
         <title>Document</title>
     </head>
     <body>
-        <header class="header">
-                 <!-- Logo -->
-        <a href="#" class="logo">LR</a>
-        <!-- Hamburger icon -->
-        <input class="side-menu" type="checkbox" id="side-menu"/>
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-        <!-- Menu -->
-        <nav class="nav">
-            <ul class="menu">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Blog</a> </li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <div class="logo" style="display: flex;align-items: center;">
+                 <span style="color:#01939c; font-size:26px; font-weight:bold; letter-spacing: 1px;margin-left: 20px;">Arbol de seda</span>
+                </div>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./pages/doctor.html">Registrar Doctor</a></li>
+                    <li><a href="./pages/register.html"> Registrarse</a></li>
+                    <li><a href="./pages/speciality.html">especialidad</a></li>
+                    <li><a class="login-button" href="./pages/login.html">Login</a></li>
+                </ul>
+            </nav>
+            <script src="./js/navbar.js"> </script>
         </header>
         <main>
-            <div>
+            <div class="slider">
+
+                <div class="slide-track">
+                    <div class="slide">
+                        <img src="./img/caradiografia.png">
+                        <p>Cardiología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/ginecologia.png">
+                        <p>Ginecología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/odontologia.png">
+                        <p>Odontología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/oftalmologia.png">
+                        <p>Oftalmología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/pediatria.png">
+                        <p>Oftalmología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/psicologia.png">
+                       <p>Psicología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/radiografia.png">
+                        <p>Radiología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/cirugia.png">
+                        <p>Cirugía</p>
+                    </div>
+
+                    <div class="slide">
+                        <img src="./img/caradiografia.png">
+                        <p>Cardiología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/ginecologia.png">
+                        <p>Ginecología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/odontologia.png">
+                        <p>Odontología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/oftalmologia.png">
+                        <p>Oftalmología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/pediatria.png">
+                        <p>Oftalmología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/psicologia.png">
+                       <p>Psicología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/radiografia.png">
+                        <p>Radiología</p>
+                    </div>
+                    <div class="slide">
+                        <img src="./img/cirugia.png">
+                        <p>Cirugía</p>
+                    </div> 
+                </div>
 
 
+                
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d413.0904340801871!2d-84.08558254462184!3d9.933901599092001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e359574bf983%3A0xb083d7382ae14a3b!2sHospital%20San%20Juan%20de%20Dios!5e0!3m2!1ses!2scr!4v1711422800323!5m2!1ses!2scr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-                <div class="pic-ctn">
-                    <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
-                    <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
-                    <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
-                    <img src="https://picsum.photos/200/300?t=4" alt="" class="pic">
-                    <img src="https://picsum.photos/200/300?t=5" alt="" class="pic">
-                  </div>
-           
-
                
+            <div class="container-map">
+                <div class="content-map">
+                    <div class="ubication-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d413.0904340801871!2d-84.08558254462184!3d9.933901599092001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e359574bf983%3A0xb083d7382ae14a3b!2sHospital%20San%20Juan%20de%20Dios!5e0!3m2!1ses!2scr!4v1711422800323!5m2!1ses!2scr"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="text">
+                        <h2>Título del Mapa</h2>
+                        <p>Aquí va tu texto explicativo sobre el mapa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="heart"></div>
+            <div class="heart2"></div>
+
+            
+                
+             
             <footer>
                 <div class="footer">
                 

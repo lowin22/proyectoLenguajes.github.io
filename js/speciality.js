@@ -56,7 +56,7 @@ const clearTextFields = () => {
 };
 const validateSpeciality = async (name) => {
     try {
-        const response = await fetch(`http://localhost:3000/specialty?name=${encodeURIComponent(name)}`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/specialty?name=${encodeURIComponent(name)}`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -80,7 +80,7 @@ const manageCustomError = (error, errorMessage) => {
     manageError(errorMessage);
 };
 const sendData = (data) => {
-    fetch('http://localhost:3000/specialty/', {
+    fetch('https://proyectlanguagesoneapi.onrender.com/specialty/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

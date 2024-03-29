@@ -1,135 +1,182 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"); /* import font */
 
-:root{
-    --white: #f9f9f9;
-    --black: #36383F;
-    --gray: #85888C;
-} /* variables*/
-
-/* Reset */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: var(--white);
-    font-family: "Poppins", sans-serif;
-}
-a{
-    text-decoration: none;
-}
-ul{
-    list-style: none;
-}
-/* Header */
-.header{
-    background-color: var(--black);
-    box-shadow: 1px 1px 5px 0px var(--gray);
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-/* Logo */
-.logo{
-    display: inline-block;
-    color: var(--white);
-    font-size: 60px;
-    margin-left: 10px;
-}
-/* Nav menu */
-.nav{
-    width: 100%;
-    height: 100%;
+ nav{
+    height: 4.5rem;
+    width: 100vw;
+    background-color: #2F91FA;
+    box-shadow: 0 3px 20px rgba(65, 179, 250, 0.2);
+    display: flex;
     position: fixed;
-    background-color: var(--black);
-    overflow: hidden;
-
-}
-.menu a{
-    display: block;
-    padding: 30px;
-    color: var(--white);
-}
-.menu a:hover{
-    background-color: var(--gray);
-}
-.nav{
-    max-height: 0;
-    transition: max-height .5s ease-out;
-}
-/* Menu Icon */
-.hamb{
-    cursor: pointer;
-    float: right;
-    padding: 40px 20px;
-}/* Style label tag */
-
-.hamb-line {
-    background: var(--white);
-    display: block;
-    height: 2px;
+    z-index: 10;
+ }
+ 
+ /*Styling logo*/
+ .logo{
+    padding:1vh 1vw;
+    text-align: center;
+ }
+ .logo img {
+    height: 5rem;
+    width: 5rem;
+ }
+ 
+ /*Styling Links*/
+ .nav-links{
+    display: flex;
+    list-style: none; 
+    width: 88vw;
+    padding: 0 0.7vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+ }
+ .nav-links li a{
+    text-decoration: none;
+    color: white;
+    margin: 0 0.7vw;
+ }
+ .nav-links li a:hover {
+    color: black;
+ }
+ .nav-links li {
     position: relative;
-    width: 24px;
-
-} /* Style span tag */
-
-.hamb-line::before,
-.hamb-line::after{
-    background: var(--white);
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-.hamb-line::before{
-    top: 5px;
-}
-.hamb-line::after{
-    top: -5px;
-}
-
-.side-menu {
+ }
+ .nav-links li a:hover::before{
+    width: 80%;
+ }
+ 
+ /*Styling Buttons*/
+ .login-button{
+    background-color: transparent;
+    border: 1.5px solid #FAD8BB;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    margin-left: 2vw;
+    font-size: 1rem;
+    cursor: pointer;
+ 
+ }
+ .login-button:hover {
+    color: #41B3FA;
+    background-color: #A6886F;
+    border:1.5px solid #A6886F;
+    transition: all ease-in-out 350ms;
+ }
+ .join-button{
+    color: #131418;
+    background-color: #61DAFB;
+    border: 1.5px solid #61DAFB;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+ }
+ .join-button:hover {
+    color: #f2f5f7;
+    background-color: transparent;
+    border:1.5px solid #f2f5f7;
+    transition: all ease-in-out 350ms;
+ }
+ 
+ /*Styling Hamburger Icon*/
+ .hamburger div{
+    width: 30px;
+    height:3px;
+    background: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+ }
+ .hamburger{
     display: none;
-} /* Hide checkbox */
+ }
+ 
+ /*Stying for small screens*/
+ @media screen and (max-width: 800px){
+    nav{
+        position: fixed;
+        z-index: 3;
+    }
+    .hamburger{
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+    .nav-links{
+        position: fixed;
+        background: #15D7FB;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .nav-links.open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .nav-links li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade{
+        opacity: 1;
+    }
+ }
 
-/* Toggle menu icon */
-.side-menu:checked ~ nav{
-    max-height: 100%;
+ .toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+ }
+ .toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+ }
+ .toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+ }
+ .slide-content {
+    position: relative;
+    text-align: center;
 }
-.side-menu:checked ~ .hamb .hamb-line {
-    background: transparent;
-}
-.side-menu:checked ~ .hamb .hamb-line::before {
-    transform: rotate(-45deg);
-    top:0;
-}
-.side-menu:checked ~ .hamb .hamb-line::after {
-    transform: rotate(45deg);
-    top:0;
-}
-/* Responsiveness */
-@media (min-width: 768px) {
-    .nav{
-        max-height: none;
-        top: 0;
-        position: relative;
-        float: right;
-        width: fit-content;
-        background-color: transparent;
-    }
-    .menu li{
-        float: left;
-    }
-    .menu a:hover{
-        background-color: transparent;
-        color: var(--gray);
 
-    }
+.slide-content img {
+    max-width: 100%;
+    height: auto;
+}
 
-    .hamb{
-        display: none;
-    }
+.slide-content .text {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
 }
