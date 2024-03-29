@@ -80,7 +80,7 @@ const manageCustomError = (error, errorMessage) => {
     manageError(errorMessage);
 };
 const sendData = (data) => {
-    fetch('https://proyectlanguagesoneapi.onrender.com/specialty/', {
+    fetch('https://proyectlanguagesoneapi.onrender.com/specialty', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
