@@ -89,7 +89,7 @@ const sendData = (data) => {
     })
     .then(response => {
         if (response.ok) {
-            manageSuccess("Se ingreso correctamente");
+            manageSuccess("Se ingreso correctamente la especialidad médica");
         } else {
             manageError("Error al enviar los datos");
         }

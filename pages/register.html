@@ -4,85 +4,109 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/register.css" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
     <script src="../js/register.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <h1>Veterinaria Turrialba</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="login.html">Inicio de sesión</a></li>
-                <li><a href="animation.html">Animación</a></li>
-                <li><a href="newform.html">Registrate</a></li>
-                <li><a href="speciality.html">Registrate</a></li>
+      
+        
+            <a href="" class="logo"><i class="ri-home-heart-fill"><span>logo</span></i>
+            </a>
+            <ul class="navbar">
+              <li><a href="../index.html" class="active"> Home</a></li>
+              <li><a href="../pages/aboutus.html">about us</a> </li>
+              <li><a href="../pages/services.html">services</a> </li>
+              <li><a href="../pages/register.html">blog </a></li>
+              <li><a href="#">contact </a></li>
             </ul>
-        </nav>
+            <div class="main">
+              <a href="../pages/login.html" class="user"><i class="ri-user-fill">Sign In</i></a>
+              <a href="../pages/register.html">Register</a>
+              <div class="bx-bx-menu" id="menu-icon"><a id="hamburguer" class="hamburguer">
+                <svg  viewBox="0 0 24 24" width="24" height="24" class="menu-icon">
+                  <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+                </svg>
+              </a></div>
+            </div>
+            <script src="../js/navbar.js"> </script>
+        
     </header>
     <main>
-        <div class="content">
-            <div class="form">
-                <h2> Iniciar seccion</h2>
-                <form id="form_register" method="post">
-                    <div class="card">
-                        <label> Cedula: </label>
-                        <input id="card" type="text" required></input>
-
+        <div class="content-form-register">
+            <section class="main-form-register">
+                <h1 class="tittle-form-register">Registrate</h1>
+                <form action="#" class="form_register" id="form_register">
+                    <div class="main-box-register">
+                        <div class="input-box">
+                            <span class="text">Cedula</span>
+                           <input id="card" type="text" required></input> 
+                        </div>
+                        <div class="input-box">
+                            <span class="text">Full name</span>
+                            <input id="name_complete" type="text" required></input>
+                        </div>
+                        <div class="input-box">
+                            <span class="text">Last Name</span>
+                              <input id="last_name" type="text" required></input>                           
+                        </div>                   
+                        <div class="input-box">
+                            <span class="text">Email</span>
+                            <input id="email" type="email" required></input>
+                        </div>                   
+                        <div class="input-box">
+                            <span class="text">Phone Number</span>
+                             <input id="phone_number" type="text" required></input>
+                        </div>                   
+                        <div class="input-box">
+                            <span class="text">Password</span>
+                             <input id="password" type="password" required></input>
+                        </div>
+                        <div class="input-box">
+                            <span class="text">Confirm Password</span>
+                            <input id="password_confirmed" type="password" required></input> 
+                        </div>
                     </div>
-                    <div class="name_complete">
-                        <label> Nombre: </label>
-                        <input id="name_complete" type="text" required></input>
-
+                    <div class="btn-form-register">
+                       <input id="bottoningresar" type="submit" value="Registrar"></input>
                     </div>
-                    <div class="last_name">
-                        <label> Apellidos: </label>
-                        <input id="last_name" type="text" required></input>
-
-                    </div>
-                    <div class="phone_number">
-                        <label> Numero de telefono: </label>
-                        <input id="phone_number" type="text" required></input>
-
-                    </div>
-                    <div class="email">
-                        <label> Email: </label>
-                        <input id="email" type="email" required></input>
-
-                    </div>
-                    <div class="password">
-                        <label> Contraseña: </label>
-                        <input id="password" type="password" required></input>
-
-                    </div>
-                    <div class="password_confirmed">
-                        <label> Confirmacion de Contraseña: </label>
-                        <input id="password_confirmed" type="password" required></input>
-
-                    </div>
-                    <input id="bottoningresar" type="submit" value="Ingresar"></input>
                 </form>
-            </div>
+            </section>
         </div>
         <!-- modal 1 -->
         <div id="myModal" class="modal">
             <div class="modal-content">
-              <span class="close">&times;</span>
-              <p id="modal-message"></p>
+                <span class="close">&times;</span>
+                <div id="modal-message" class="content">
+                   
+                </div>
             </div>
-          </div>
+        </div>
         <!-- /modal 1 -->
     </main>
     <footer>
-        <p>Siguenos en redes sociales</p>
-        <div>
-            <a href="http//facebook.com"> Facebook </a>
-        </div>
-        <P>Derechos de autor 2024 </P>
+        <div class="footer">
+                
+            <div class="row">
+            <ul>
+            <li><a href="./pages/aboutus.html">Sobre nosotros</a></li>
+            <li><a href="./pages/services.html">Nuestros servicios</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Career</a></li>
+            </ul>
+            </div>
+            
+            <div class="row">
+                        Hospoital de la luz oxiadioria full pawa
+            </div>
+            </div>
     </footer>
 </body>
 

@@ -5,7 +5,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 80%; /* Ancho máximo para el contenedor */
+    max-width: 600px; /* Cambia este valor según el ancho deseado */
+    margin: 0 auto; /
 }
 .ubication-map {
     width: 100%;

@@ -1,56 +1,62 @@
-.heart {
-    position: relative;
-    width: 100px;
-    height: 90px;
-    background: red;
-    transform: rotate(-45deg);
-    margin: 50px auto;
-    animation: throb 2s infinite alternate, scaleHeart 2s infinite alternate;
-    transform-origin: center;
+.heart-content{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.heart{
+  --size: 200px;
+  --color: red;
+  transform:rotate(45deg);
+  animation:throb 1s infinite alternate ease-in-out,beat 1s infinite alternate ease-in-out;
+}
+@keyframes beat{
+  to{
+    transform: rotate(45deg) scale(1.05);
   }
-  
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    background: red;
-    border-radius: 50%;
-  }
-  
-  .heart::before {
-    left: 50px;
-    top: 0;
-  }
-  
-  .heart::after {
-    left: 0;
-    top: -50px;
-  }
-  
+}
+
+.heart,
+.heart::before,
+.heart::after{
+    width: var(--size);
+    height: var(--size);
+    background:var(--color);
+}
+.heart::before,
+.heart::after{
+  content:'';
+  display: block;
+  border-radius:50%;
+}
+.heart::before{
+  margin-top: calc(var(--size)*-.5);
+ 
+}
+.heart::after{
+  margin-top: calc(var(--size)* -0.5);
+  margin-left: calc(var(--size)* -0.5);
+}
+
+
   @keyframes throb {
     0% {
-      width: 90px;
-      opacity: 1;
-    }
-    50% {
-      width: 90px;
+      
       opacity: 0.5;
     }
-    100% {
-      width: 90px;
+    50% {
+    
       opacity: 1;
+    }
+    100% {
+
+      opacity: 2;
+    }
+  }
+  @keyframes beat{
+    to{
+      transform: rotate(45deg) scale(1.05);
     }
   }
   
-  @keyframes scaleHeart {
-    0%, 100% {
-      transform: scale(1.2);
-    }
-    50% {
-      transform: scale(1);
-    }
-  }
   
   
