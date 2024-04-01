@@ -1,3 +1,10 @@
+:root{
+  --principal-color: #5179F0;
+  --sedundaty-color: #51ABF0;
+   --button-color: #51F0CE;
+   --letter-color-w: white;
+   --letter-color-b: black;
+ }
 .modal {
   display: none;
   position: fixed;
@@ -13,10 +20,11 @@
 .modal-content {
   margin: 70px auto;
   padding: 20px;
-  background: #fff;
+  background: var(--letter-color-w);
   border-radius: 5px; /* Adjusted border-radius to make it more square */
   max-width: 70%; /* Changed from 30% to 70% for a larger modal */
   position: relative;
+  z-index: 1000003;
 }
 
 .modal-content .close {
@@ -25,18 +33,17 @@
   right: 10px;
   font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: var(--letter-color-b);
   text-decoration: none;
 }
 
 .modal-content .close:hover {
-  color: #06D85F;
+  color: var(--letter-color-w);
 }
 
 .modal-content .content h2 {
   margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+  color: var(--letter-color-b);
 }
 
 @media screen and (max-width: 700px) {
