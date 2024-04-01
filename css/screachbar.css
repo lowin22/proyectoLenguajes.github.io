@@ -1,0 +1,161 @@
+
+:root{
+    --principal-color: #5179F0;
+    --sedundaty-color: #51ABF0;
+     --button-color: #51F0CE;
+     --letter-color-w: white;
+     --letter-color-b: black;
+   }
+.content-screach-div{
+   
+    border: 2px;
+    width: 100%;
+    background-color: white;
+}
+.content-screach{
+    border: 2px solid var(--button-color);
+    position: fixed;
+    width: 500px;
+    min-height: 150px;
+    margin-top: 100px;
+    border-radius: 8px;
+    left: 50%;/*esto lo tira a la izquierda, antes taba en la derecha*/
+    transform: translateX(-50%);/*esto es para centrar el coso en el eje y*/
+    z-index:10001;
+    flex-direction: column;
+    color: var(--letter-color-b);/*color de letra*/
+    background-color: var(--sedundaty-color);/*color de fondo*/
+    display: none;
+}
+.content-screach .screach{
+   
+    display: flex;
+   height: 55px;
+   margin: 12px 12px 0;
+}
+.content-screach .screach .divscreach{/*este es el buscador*/
+    border: 4px solid var(--button-color);
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--letter-color-w);
+    overflow: hidden;
+}
+.content-screach .screach svg{
+   
+    min-width: 28px;
+    font-size: 28px;
+    margin: 0 5px;
+    color: var(--letter-color-b);
+}
+.content-screach .screach input,
+.content-screach .screach select{
+    
+    height: 100%;
+    background-color: var(--letter-color-w);
+    color: var(--letter-color-b);
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+#btn-close-screach{
+    font-size: 17px;
+    color: var(--letter-color-w);
+    margin: auto 0 auto 8px;
+    cursor: pointer;
+  
+}
+#x-input{
+    cursor: pointer;
+    margin: auto 8px; /* Ajusta este margen según sea necesario */
+    display: none;
+}
+
+.content-screach .result-content{ /*el contenido de abajo*/
+    
+    min-height: 100px;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow-y: 10px;
+}
+.result-content .result{
+    border: 2px solid var(--sedundaty-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.result-content .result h3{
+    color: var(--letter-color-w);
+    font-size: 14px;
+    font-weight: 600;
+}
+.result-content .result a{
+    border: 1px solid var(--button-color);
+    background-color: var(--letter-color-w);
+    text-decoration: none;
+    color: var(--letter-color-b);
+    border-radius: 7px;
+    height: 55px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+.result-content .result a:hover{
+    background-color: var(--button-color);
+    color: var(--letter-color-w);
+}
+
+.result-content::-webkit-scrollbar{
+    width: 6px;
+
+}
+.result-content::-webkit-scrollbar-thumb{
+   background-color: var(--letter-color-w);
+   border-radius: 4px;  
+}
+.result-content .no-result{
+    padding: 15px;
+    font-size: 13px;
+    color: var(--letter-color-w);
+    margin: 0 auto;
+
+}
+
+.background-search{
+    background-color: var(--principal-color);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 140;
+}
+
+@media (max-width:770px) or (max-height:550px){
+    .content-screach{
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        top: 0;
+        border: none;
+        border-radius: 0;
+        display: flex;
+        
+        justify-content: space-between;
+    }
+    .content-screach .result-content{
+        height: 100%;
+        max-height: 100%;
+    }
+}
+

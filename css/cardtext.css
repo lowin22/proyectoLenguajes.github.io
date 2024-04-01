@@ -1,3 +1,10 @@
+:root{
+    --principal-color: #5179F0;
+    --sedundaty-color: #51ABF0;
+     --button-color: #51F0CE;
+     --letter-color-w: white;
+     --letter-color-b: black;
+   }
 .about-card-content{
     width: 100%;
     height: 100vh;
@@ -44,8 +51,8 @@
    margin-bottom: 45px;
 }
 button{
-    background-color: blueviolet;/*color del boton*/
-    color: black;
+    background-color: var(--sedundaty-color);/*color del boton*/
+    color: var(--letter-color-w);
     border: 2px solid transparent;
     text-decoration: none;
     padding: 10px 30px;
@@ -56,8 +63,8 @@ button{
 button:hover{
     transform: scale(1.2);
     background-color: transparent;
-    border: 2px solid blueviolet;
-    color: bluevioletl;
+    border: 2px solid var(--sedundaty-color);
+    color: var(--letter-color-b);
     transition: .4s;
     cursor: pointer;
 }

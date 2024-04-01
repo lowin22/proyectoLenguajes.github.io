@@ -1,3 +1,10 @@
+:root{
+  --principal-color: #5179F0;
+  --sedundaty-color: #51ABF0;
+   --button-color: #51F0CE;
+   --letter-color-w: white;
+   --letter-color-b: black;
+ }
 .content-form-login{
   height: 100vh;
   width: 100%;
@@ -14,14 +21,14 @@
   width: 100%;
   max-width: 470px;
   padding: 30px 20px;
-  background: rgba(85, 207, 252, 0.45);/*color del contenedor, el que esta en el fondo*/
-  border: 2px solid #3a1b22;/*color del contenedor, no se */
+  background: var(--principal-color);/*color del contenedor, el que esta en el fondo*/
+  border: 2px solid var(--sedundaty-color);/*color del contenedor, no se */
   border-radius: 16px;
 
 }
 .container-login-form h1{
   text-align: center;
-  color: black;/*color de letra*/
+  color: var(--letter-color-w);/*color de letra*/
   font-size: 2.5rem;
   font-weight: 600;
   padding: 0 0 8px 0;
@@ -32,7 +39,7 @@
 .form-login .main-login-form{
   position: relative;
   margin: 30px 0;
-  border-bottom: #3a1b22;/*es el borde color de los inputs*/
+  border-bottom: var(--sedundaty-color);/*es el borde color de los inputs*/
 }
 .main-login-form input{
   width: 100%;
@@ -41,14 +48,14 @@
   height: 40px;
   border: none;
   outline: none;
-  background: none;
-  color: black;/*color de la letra*/
+  background: var(--letter-color-w);
+  color: var(--letter-color-b);/*color de la letra*/
 }
 .main-login-form label{
   position: absolute;
   top: 50%;
   left: 6px;
-  color: black;/*color del label*/
+  color: var(--letter-color-b);/*color del label*/
   transform: translateY(-50%);
   font-size: 1.1rem;
   pointer-events: none;
@@ -58,18 +65,18 @@
   position: absolute;
   content: '';
   left: 0;
-  top: 35px;
+  top: 45px;
   width: 100%;
   height: 2px;
 }
 .main-login-form input:focus ~ label,
 .main-login-form input:valid ~ label{
-  top: -3px;
-  color: black;/*cuando el texto paso a arriba se va a poner negro*/
+  top: -12px;
+  color: var(--letter-color-w);/*cuando el texto paso a arriba se va a poner negro*/
 }
 .pass-form {
   margin: -6px 0 20px 5px;
-  color: black;/*es el color de la letra*/
+  color: var(--letter-color-w);/*es el color de la letra*/
   cursor: pointer;
 }
 .pass-form:hover{
@@ -79,14 +86,14 @@ input[type="submit"]{
   height: 45px;
   width: 100%;
   border: none;
-  background: #b2405d;/*color de fondo*/
-  color: black;/*color de la letra*/
+  background: var(--sedundaty-color);/*color de fondo*/
+  color: var(--letter-color-w);/*color de la letra*/
   font-size: 1.1rem;
   border-radius: 16px;
   cursor: pointer;
 }
 .sigup-form-login{
-  color: black;/*es color de la letra*/
+  color:var(--letter-color-w);/*es color de la letra*/
   font-size: 1rem;
   text-align: center;
   margin: 30px 0;
@@ -95,6 +102,7 @@ input[type="submit"]{
 .sigup-form-login a{
   margin-left: 10px;
   text-decoration: none;
+  color: var(--button-color);
 }
 .sigup-form-login a:hover{
  text-decoration: underline;

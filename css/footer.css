@@ -1,5 +1,12 @@
+:root{
+  --principal-color: #5179F0;
+  --sedundaty-color: #51ABF0;
+   --button-color: #51F0CE;
+   --letter-color-w: white;
+   --letter-color-b: black;
+ }
 .footer {
-  background: #00B2B2;
+  background: var(--principal-color);
   padding: 30px 0px;
   font-family: 'Play', sans-serif;
   text-align: center;
@@ -18,7 +25,7 @@
 
 .footer .row a {
   text-decoration: none;
-  color: white; 
+  color: var(--letter-color-w); 
   transition: 0.5s;
 }
 

@@ -1,16 +1,23 @@
+:root{
+  --principal-color: #5179F0;
+  --sedundaty-color: #51ABF0;
+   --button-color: #51F0CE;
+   --letter-color-w: white;
+   --letter-color-b: black;
+ }
 .content-form-register{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background-color: white;
+  background-color: var(--letter-color-w);
   background-size: cover;
   background-position: center;
   padding: 30px;
 }
 .main-form-register{
-  background: rgba(253, 253, 253, 0.35) ;
+  background: var(--principal-color) ;
   width: 100%;
   max-width: 800px;
   padding: 30px 40px;
@@ -20,7 +27,7 @@
   position: relative;
   font-size: 30px;
   font-weight: 700;
-  color: black;
+  color: var(--letter-color-w);
   margin-bottom: 10px;
 }
 .tittle-form-register::before{
@@ -30,7 +37,7 @@
   bottom: -8px;
   height: 3px;
   width: 60px;
-  background: #378463;
+  background: var(--sedundaty-color);
 }
 
 
@@ -48,10 +55,10 @@
 .main-form-register .main-box-register .input-box input {
   width: 100%;
   height: 50px;
-  background: rgba(0, 0, 0, 0.1);
-  color: white;
+  background: var(--letter-color-w);
+  color: var(--letter-color-b);
   outline: none;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--sedundaty-color);
   padding-left: 17px;
   font-size: 1rem;
   transition: all .40s ease;
@@ -61,7 +68,7 @@
   display: block;
   margin-bottom: 5px;
   font-size: 16px;
-  color: black;
+  color: var(--letter-color-w);
   font-weight: 500;
 }
 .main-form-register .main-box-register .input-box input:focus,
@@ -76,8 +83,8 @@
  height: 100%;
  width: 100%;
  outline: none;
- background: rgba(0, 0, 0, 0.35);
- color: #378463;
+ background:var(--sedundaty-color);
+ color: var(--letter-color-w);
  border-radius: 8px;
  border: none;
  font-size: 20px;

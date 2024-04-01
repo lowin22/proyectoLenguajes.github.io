@@ -1,10 +1,12 @@
 
-:root{
-   --bg-color: #2F91FA;
-   --color-bg: #46CEF0;
-    --text-color: white;
-    --main-color: #2F91FA;
-  }
+
+  :root{
+    --principal-color: #5179F0;
+    --sedundaty-color: #51ABF0;
+     --button-color: #51F0CE;
+     --letter-color-w: white;
+     --letter-color-b: black;
+   }
   header{
     position:fixed;
     width: 100%;
@@ -14,21 +16,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--color-bg);
+    background-color: var(--principal-color);
     padding: 28px 12%;
     transition: all .50s ease;
+  }
+  .menu-icon{
+    color: var(--letter-color-w);
   }
   .logo{
     display: flex;
     align-items: center;
   }
   .logo i{
-    color: var(--main-color);
+    color: var(--letter-color-w);
     font-size: 28px;
     margin-left: 3px;
   }
   .logo span{
-    color: var(--text-color);
+    color: var(--letter-color-w);
     font-size: 1.1rem;
     font-weight: 600;
   
@@ -37,7 +42,7 @@
     display: flex;
   }
   .navbar a{
-    color: var(--text-color);
+    color: var(--letter-color-w);
     font-size: 1,1rem;
     font-weight: 500;
     padding: 5px 0;
@@ -45,7 +50,7 @@
     transition: all .50 ease;
   }
   .navbar a:hover{
-    color: var(--main-color);
+    color: var(--letter-color-b);
   }
   .main{
   display: flex;
@@ -54,7 +59,7 @@
   .main a{
     margin-right: 25px;
     margin-left: 10px;
-    color: var(--text-color);
+    color: var(--letter-color-w);
     font-size: 1.1rem;
     font-weight: 500;
     transition: all .50s ease;
@@ -64,16 +69,16 @@
     align-items: center;
   }
   .user i{
-    color: var(--main-color);
+    color: var(--letter-color-w);
     font-size: 28px;
     margin-right: 7px;
   }
   .main a:hover{
-    color: var(--main-color);
+    color: var(--letter-color-b);
   }
   #menu-icon{
     font-size: 35px;
-    color: var(--text-color);
+    color: var(--letter-color-w);
     cursor: pointer;
     z-index: 10001;
     display: none;
@@ -95,7 +100,7 @@
       right: -100%;
       width: 270px;
       height: 29vh;
-      background: var(--main-color);
+      background: var(--sedundaty-color);
       display: flex;
       flex-direction: column;
       justify-content: flex-start;

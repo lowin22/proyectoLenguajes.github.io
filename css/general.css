@@ -5,6 +5,7 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  font-family: 'Ropa Sans', sans-serif;
 
 }
  .separator {
@@ -15,14 +16,10 @@
     border: none; 
   }
 
-  a{
-    font-family: 'Ropa Sans', sans-serif;
-  }
   h1,h2, p {
     max-width: 800px;
     margin: 0 auto;  
     justify-content: center;
-    font-family: 'Ropa Sans', sans-serif;
     text-align: justify;
   }
   
