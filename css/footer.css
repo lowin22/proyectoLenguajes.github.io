@@ -10,9 +10,9 @@
   padding: 30px 0px;
   font-family: 'Play', sans-serif;
   text-align: center;
-  position: relative; /* Cambiamos la posición a fixed */
-  bottom: 0; /* Lo posicionamos al fondo de la página */
-  width: 100%; /* Aseguramos que ocupe todo el ancho */
+  position: relative; 
+  bottom: 0; 
+  width: 100%;
 }
 
 .footer .row {

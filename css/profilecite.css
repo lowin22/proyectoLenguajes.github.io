@@ -1,0 +1,107 @@
+
+:root{
+  --principal-color: #5179F0;
+  --sedundaty-color: #51ABF0;
+   --button-color: #51F0CE;
+   --letter-color-w: white;
+   --letter-color-b: black;
+   --button-color-cancel: #EB853D;
+ }
+ 
+ .cotainer-cite-profile{
+  width: 1280px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--letter-color-w);
+  
+  margin-bottom: 16px;
+  border-radius: 20px;
+ }
+ .content-cite {
+  background: var(--principal-color); 
+  margin-left: 20px;
+  margin-right: 20px; 
+  border-radius: 20px;
+margin-top: 10px;
+ 
+}
+ .cotainer-cite-profile .content-cite p{
+  color: var(--letter-color-w);
+  margin-bottom: 15px;
+ }
+ .conten-cite-button {
+  align-items: center;
+  text-align: center; 
+  margin-bottom: 20px;
+}
+ .btn-cite-edit,
+ .btn-cite-accept{
+  background-color: var(--sedundaty-color);
+  color: var(--letter-color-w);
+  border: 2px solid transparent;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.btn-cite-edit:hover,
+.btn-cite-accept:hover{
+  transform: scale(1);
+  background-color: transparent;
+  border: 2px solid var(--sedundaty-color);
+  color: var(--letter-color-w);
+  transition: .4s;
+  cursor: pointer;
+}
+.tex-cite{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.btn-cite-cancel{
+  background-color: var(--button-color-cancel);
+  color: var(--letter-color-w);
+  border: 2px solid transparent;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.btn-cite-cancel:hover{
+  transform: scale(1);
+  background-color: transparent;
+  border: 2px solid var(--button-color-cancel);
+  color: var(--letter-color-w);
+  transition: .4s;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1180px){
+  .about-card-content{
+      width: 100%;
+      height: auto;
+      padding: 70px 0px;
+  }
+}
+@media screen and (max-width: 650px){
+  .cotainer-cite-profile{
+      margin-bottom: 35px;
+  }
+  .content-cite .a{
+    font-size: 16px;
+      margin-bottom: 25px;
+  }
+  .text-card p{
+      font-size: 16px;
+      margin-bottom: 25px;
+  }
+}

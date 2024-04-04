@@ -12,8 +12,68 @@ const btnPrev = document.getElementById("btn-prev");
 let storedData = null;
 
 let currentPage = 1;
-const itemsPerPage = 5; // Adjust this value according to your needs
+const itemsPerPage = 5; 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+        window.location.href = "../pages/login.html"; 
+    }
+    const userData = JSON.parse(user); 
+        const card = userData.card; 
+        document.getElementById("card").value = card;
+    const formRegister = document.getElementById("form_register")
+    formRegister.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const { card, dateAppoinment, name,speciality,carddoctor  } = getFormData();
+        
+        const isFecthValid = await validateFecthDoctor(carddoctor,dateAppoinment);
+        if(!isFecthValid){
+            const esValue = validateDate(dateAppoinment)&&validateData(card)&&validateData(dateAppoinment)&&validateData(name)&&validateData(carddoctor);
+            if (esValue) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const reservationId = urlParams.get('id');
+                console.log(reservationId);
+                updateData({ card, name, dateAppoinment, speciality, carddoctor }, reservationId);
+            } else {
+              manageError("La fecha ingresada no es valida");
+            }
+        }else{
+            manageError("ya existen reservaciones");
+        }
+        
+      });
+});
+const getFormData = () => {
+    const card = document.getElementById("card").value.trim();
+    const name = document.getElementById("name_complete").value.trim();
+    const dateAppoinment = document.getElementById("date-appoinment").value.trim();
+    const speciality = document.getElementById("speciality").value.trim();
+    const carddoctor = document.getElementById("carddoctor").value.trim();
+    return { card, dateAppoinment, name,speciality,carddoctor}
+};
+const updateData = async (data, id) => {
+    try {
+        const response = await fetch(`http://localhost:3000/reservation/${id}`, {
+            method: 'PATCH', // Utilizar el método PATCH para actualizar parcialmente el recurso
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            console.log('La reserva se actualizó correctamente');
+            // Manejar el éxito de la actualización aquí si es necesario
+        } else {
+            console.error('Hubo un problema al actualizar la reserva');
+            // Manejar el error de la actualización aquí si es necesario
+        }
+    } catch (error) {
+        console.error('Error al enviar los datos:', error);
+        // Manejar cualquier error de la solicitud aquí si es necesario
+    }
+};
 
 textSearch.addEventListener("keyup", () => {
     if (textSearch.value.length > 0) {
@@ -31,6 +91,12 @@ textSearch.addEventListener("keydown", (event) => {
 
     }//en of key.event de enter
 });
+const validateDate = (date) => {
+    const dateObj = new Date(date);
+    return !isNaN(dateObj) && dateObj.getFullYear() === 2024;
+}
+
+
 const validateUbicationSearch = (location) => {
     return true;
 };
@@ -43,6 +109,9 @@ const validatePhoneNumberSearch = (phoneNumber) => {
 const validateCardSearch = (card) => {
     return /^\d{2}-\d{4}-\d{4}$/.test(card);
 };
+const validateData = (data) => {
+    return data.length>0;
+};
 const manageEventSpan = (successMessage) => {
     span.textContent = successMessage;
     span.style.display = "block";
@@ -51,7 +120,7 @@ const manageEventSpan = (successMessage) => {
 const manageSuccess = (successMessage) => {
     document.getElementById("modal-message").innerHTML = successMessage;
     showModal();
-    clearTextFields();
+  
 };
 
 const manageError = (errorMessage) => {
@@ -91,7 +160,21 @@ btnSearch.addEventListener("click", () => {
     contentS.style.display = "block";
 }
 );
-
+const validateFecthDoctor = async (card,date) => {
+    try {
+        const response = await fetch(`http://localhost:3000/reservation?carddoctor=${encodeURIComponent(card)}&dateAppoinment=${date}`);
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+          return data.length>0;
+        } else {
+            manageEventSpan('Error al procesar la solicitud.');
+        }
+    } catch (error) {
+        console.error("Error al procesar la solicitud:", error);
+        manageEventSpan('Error al procesar la solicitud.');
+    }
+};
 //apartado de busqueda de los medicos importantes 
 const validateCardDoctor = async (card) => {
     try {
@@ -160,7 +243,7 @@ const validateNameDoctor = async (card,page,limit) => {
                     resultContent.appendChild(resultDiv); // Agregar al contenido existente
                
     });
-     // Agregar eventos de clic a los elementos '.select-doctor' después de crearlos
+   
      const selectDoctorLinks = document.querySelectorAll(".select-doctor");
      selectDoctorLinks.forEach(selectDoctorLink => {
          selectDoctorLink.addEventListener("click", (event) => {
@@ -272,12 +355,16 @@ const validateDirectionDoctor = async (direction,page,limit) => {
 };
 // Función para rellenar la información del doctor seleccionado
 function fillCardData(doctorData) {
-    const cardContent = document.querySelector(".card-content");
-    const nameDoctor = cardContent.querySelector("h1");
-    const aboutDoctor = cardContent.querySelector("p");
+   
+    const nameDoctor = document.getElementById("name_complete");
+    const speciality = document.getElementById("speciality");
+    const carddoctor = document.getElementById("carddoctor");
 
-    nameDoctor.textContent = `${doctorData.name} ${doctorData.last_name}`;
-    aboutDoctor.innerHTML = `Cedula: ${doctorData.card} <br>Especialidad: ${doctorData.specialty}<br>Detalles: ${doctorData.details}<br>Email: ${doctorData.email}<br>Direccion: ${doctorData.direction}<br>Direccion: ${doctorData.schedule} `;
+
+   
+   nameDoctor.value=`${doctorData.name} ${doctorData.last_name}`;
+   speciality.value=doctorData.specialty;
+   carddoctor.value=doctorData.card;
     contentS.style.display = "none";
 }
 function searchDoctors() {
