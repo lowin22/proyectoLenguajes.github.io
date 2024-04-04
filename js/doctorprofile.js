@@ -1,29 +1,19 @@
-const btnReservation = document.getElementById("btn-reservation");
 const resultContent = document.querySelector(".cotainer-cite-profile");
-
+const btnDoctor = document.getElementById("doctor-search");
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const user = localStorage.getItem("user");
-    if (!user) {
-        window.location.href = "../pages/login.html";
-    }
-    console.log(user);
-    const userData = JSON.parse(user);
+  
     const nameProfile = document.getElementById("name-profile");
 
-    const dataProfile = document.getElementById("data-profile");
-    nameProfile.textContent = `${userData.name} ${userData.last_name}`;
-    dataProfile.innerHTML = `Cedula: ${userData.card}<br>Numero de telefono: ${userData.phone_number}<br>Email: ${userData.email}`;
-    GetReservations(userData.card);
-});
-btnReservation.addEventListener("click", () => {
-    window.location.href = "../pages/reservation.html";
+   
+   
 });
 
-const GetReservations = async (card) => {
+
+const GetReservations = async (carddoctor) => {
     try {
-        const response = await fetch(`http://localhost:3000/reservation?card=${encodeURIComponent(card)}&cancel=0`);
+        const response = await fetch(`http://localhost:3000/reservation?carddoctor=${encodeURIComponent(carddoctor)}&cancel=0`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -79,11 +69,11 @@ const GetReservations = async (card) => {
                 manageEventSpan('No se encontraron medicos');
             }
         } else {
-            manageEventSpan('Error al procesar la solicitud.');
+           console.log('oh no ');
         }
     } catch (error) {
         console.error("Error al procesar la solicitud:", error);
-        manageEventSpan('Error al procesar la solicitud.');
+       
     }
 };
 const cancelReservation = async (reservationId) => {
@@ -115,7 +105,7 @@ const acceptReservation = async (reservationId) => {
     try {
         // Construir el objeto de datos con la reserva actualizada
         const updatedReservation = {
-            accepct: 1 // Cambiar el valor de cancel a 1
+            doctoraccept: 1 // Cambiar el valor de cancel a 1
         };
 
         // Realizar la solicitud para actualizar la reserva
@@ -137,3 +127,16 @@ const acceptReservation = async (reservationId) => {
         console.error('Error al realizar la solicitud:', error);
     }
 };
+
+const validateEmail = (card) => {
+    return /^\d{2}-\d{4}-\d{4}$/.test(card);
+};
+btnDoctor.addEventListener("click", () => {
+    const doctorCard = document.getElementById("input-doctor-search");
+    if(validateEmail(doctorCard.value)){
+        GetReservations(doctorCard.value);
+    }else{
+        console.log('no, la cedula esta mal');
+    }
+    
+});

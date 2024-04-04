@@ -1,0 +1,48 @@
+
+:root{
+    --principal-color: #5179F0;
+    --sedundaty-color: #51ABF0;
+     --button-color: #51F0CE;
+     --letter-color-w: white;
+     --letter-color-b: black;
+   }
+.doctor-data{
+    height: 50vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+}
+.doctor-data input{
+    border-radius: 20px;
+    background-color: var(--principal-color);
+    width: 100%;
+    padding: 0 5px;
+    font-size: 1rem;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: var(--principal-color);
+    color: var(--letter-color-w);/*color de la letra*/
+  }
+  .doctor-search{
+    background-color: var(--sedundaty-color);/*color del boton*/
+    color: var(--letter-color-w);
+    border: 2px solid transparent;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .doctor-search:hover{
+     transform: scale(1);
+    background-color: transparent;
+    border: 2px solid var(--sedundaty-color);
+    color: var(--letter-color-b);
+    transition: .4s;
+    cursor: pointer;
+  }
