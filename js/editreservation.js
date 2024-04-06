@@ -33,8 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (esValue) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const reservationId = urlParams.get('id');
-                console.log(reservationId);
-                updateData({ card, name, dateAppoinment, speciality, carddoctor }, reservationId);
+                const cancel=0;
+                const accepct=0;
+                const doctoraccept=0;
+                updateData({ card, name, dateAppoinment, speciality, carddoctor,cancel,accepct,doctoraccept }, reservationId);
             } else {
               manageError("La fecha ingresada no es valida");
             }

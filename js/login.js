@@ -1,4 +1,4 @@
-
+let permisons =0;
 document.addEventListener("DOMContentLoaded", () => {
     const formLogin = document.getElementById("form_login");
     formLogin.addEventListener("submit", async (event) => {
@@ -6,7 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const { card, password } = getFormData();
         const esValue = validatePassword(password) && validateEmail(card);
         if(!esValue){
-            manageError("Las credenciales son incorrectas. Por favor, verifique e intente nuevamente.");
+            if(permisons>3){
+                manageError("excedió el numero de intentos permitidos");
+                permisons++;
+            }else{
+                manageError("Las credenciales son incorrectas. Por favor, verifique e intente nuevamente.");
+                permisons++;
+            }
+
+           
             clearTextFields();
         }else {
             await getDataLogin(card,password)
@@ -70,7 +78,14 @@ const getDataLogin = async (card, password) => {
                 localStorage.setItem("user", JSON.stringify(data[0]));
                 manageSuccess("Inicio de sesión exitoso");
             } else {
-                manageError("Las credenciales son incorrectas. Por favor, verifique e intente nuevamente.");
+                if(permisons>3){
+                    manageError("excedió el numero de intentos permitidos");
+                    permisons++;
+                }else{
+                    manageError("Las credenciales son incorrectas. Por favor, verifique e intente nuevamente.");
+                    permisons++;
+                }
+                
             }
         } else {
             manageError("Error al procesar la solicitud. Por favor, intente nuevamente más tarde.");

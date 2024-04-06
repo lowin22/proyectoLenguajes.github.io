@@ -108,7 +108,9 @@ const validateCardDoctor = async (card) => {
                     resultDiv.innerHTML = `
                     <h3 class="name-doctor">${doctor.name} ${doctor.last_name}</h3>
                     <a href="#" class="select-doctor" id="select-doctor" data-card="${doctor.card}">
-                        <span>${doctor.card}</span>
+                    <span>${doctor.card},${doctor.specialty} <br>
+                    ${doctor.direction}
+                    </span>
                     </a>
                 `;
             
@@ -153,7 +155,9 @@ const validateNameDoctor = async (card,page,limit) => {
                     resultDiv.innerHTML = `
                     <h3 class="name-doctor">${doctor.name} ${doctor.last_name}</h3>
                     <a href="#" class="select-doctor" id="select-doctor" data-card="${doctor.card}">
-                        <span>${doctor.card}</span>
+                    <span>${doctor.card},${doctor.specialty} <br>
+                    ${doctor.direction}
+                    </span>
                     </a>
                 `;
             
@@ -197,7 +201,9 @@ const validateSpecDoctor = async (card,page,limit) => {
                     resultDiv.innerHTML = `
                     <h3 class="name-doctor">${doctor.name} ${doctor.last_name}</h3>
                     <a href="#" class="select-doctor" id="select-doctor" data-card="${doctor.card}">
-                        <span>${doctor.card}</span>
+                    <span>${doctor.card},${doctor.specialty} <br>
+                    ${doctor.direction}
+                    </span>
                     </a>
                 `;
             
@@ -241,7 +247,9 @@ const validateDirectionDoctor = async (direction,page,limit) => {
                     resultDiv.innerHTML = `
                     <h3 class="name-doctor">${doctor.name} ${doctor.last_name}</h3>
                     <a href="#" class="select-doctor" id="select-doctor" data-card="${doctor.card}">
-                        <span>${doctor.card}</span>
+                        <span>${doctor.card},${doctor.specialty} <br>
+                        ${doctor.direction}
+                        </span>
                     </a>
                 `;
             

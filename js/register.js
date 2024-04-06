@@ -53,9 +53,17 @@ const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 const validateName = (name) => {
+    if(name.length>20){
+        console.log("mas de 30 carateres");
+        return false;
+    }
     return /^[A-Z][a-zA-Z\s'.-]+$/.test(name);
 };
 const validateLastName = (lastname) => {
+    if(lastname.length>30){
+        console.log("mas de 20 carateres");
+        return false;
+    }
     return /^[A-Z][a-zA-Z\s'.-]+$/.test(lastname);
 };
 const validatePhoneNumber = (phoneNumber) => {
