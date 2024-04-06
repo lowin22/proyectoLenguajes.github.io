@@ -50,7 +50,7 @@ const getFormData = () => {
     return { card, dateAppoinment, name,speciality,carddoctor}
 };
 const sendData = (data) => {
-    fetch('http://localhost:3000/reservation/', {
+    fetch('https://proyectlanguagesoneapi.onrender.com/reservation/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ btnSearch.addEventListener("click", () => {
 );
 const validateFecthDoctor = async (card,date) => {
     try {
-        const response = await fetch(`http://localhost:3000/reservation?carddoctor=${encodeURIComponent(card)}&dateAppoinment=${date}`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation?carddoctor=${encodeURIComponent(card)}&dateAppoinment=${date}`);
         if (response.ok) {
             const data = await response.json();
             console.log(data);
@@ -173,7 +173,7 @@ const validateFecthDoctor = async (card,date) => {
 //apartado de busqueda de los medicos importantes 
 const validateCardDoctor = async (card) => {
     try {
-        const response = await fetch(`http://localhost:3000/doctor?card=${encodeURIComponent(card)}`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/doctor?card=${encodeURIComponent(card)}`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -218,7 +218,7 @@ const validateCardDoctor = async (card) => {
 //apartado de busqueda de los medicos importantes 
 const validateNameDoctor = async (card,page,limit) => {
     try {
-        const response = await fetch(`http://localhost:3000/doctor?name=${encodeURIComponent(card)}&_page=${page}&_limit=${limit}`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/doctor?name=${encodeURIComponent(card)}&_page=${page}&_limit=${limit}`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -262,7 +262,7 @@ const validateNameDoctor = async (card,page,limit) => {
 };
 const validateSpecDoctor = async (card,page,limit) => {
     try {
-        const response = await fetch(`http://localhost:3000/doctor?specialty=${encodeURIComponent(card)}&_page=${page}&_limit=${limit}`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/doctor?specialty=${encodeURIComponent(card)}&_page=${page}&_limit=${limit}`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -306,7 +306,7 @@ const validateSpecDoctor = async (card,page,limit) => {
 };
 const validateDirectionDoctor = async (direction,page,limit) => {
     try {
-        const response = await fetch(`http://localhost:3000/doctor?direction=${encodeURIComponent(direction)}&_page=${page}&_limit=${limit}`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/doctor?direction=${encodeURIComponent(direction)}&_page=${page}&_limit=${limit}`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {

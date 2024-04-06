@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const formRegister = document.getElementById("form_register")
     formRegister.addEventListener("submit", async (event) => {
@@ -10,7 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
             && validateEmail(email) &&validateName(name)&&validateLastName(lastname)
             &&validatePhoneNumber(phoneNumber)&&validateCard(card)&&validatePasswords(password,passwordConfirmed);
             if (esValue) {
-                sendData({ card, name, lastname, phoneNumber, email, password });
+               
+                var encryptedPassword =CryptoJS.SHA256(password).toString();
+                console.log(encryptedPassword);
+                console.log(password);
+                sendData({ card, name, lastname, phoneNumber, email, encryptedPassword });
             } else {
                 manageError("Existe un problema con los datos");
             }
@@ -88,7 +93,7 @@ const clearTextFields = () => {
     fields.forEach((field) => field.value = "");
 };
 const sendData = (data) => {
-    fetch('http://localhost:3000/data_user/', {
+    fetch('https://proyectlanguagesoneapi.onrender.com/data_user/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -109,7 +114,7 @@ const sendData = (data) => {
 };
 const validateCardPerson = async (card) => {
     try {
-      const response = await fetch(`http://localhost:3000/data_user?card=${encodeURIComponent(card)}`);
+      const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/data_user?card=${encodeURIComponent(card)}`);
       if (response.ok) {
         const data = await response.json();
         if (data.length > 0) {

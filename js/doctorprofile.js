@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const GetReservations = async (carddoctor) => {
     try {
-        const response = await fetch(`http://localhost:3000/reservation?carddoctor=${encodeURIComponent(carddoctor)}&cancel=0`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation?carddoctor=${encodeURIComponent(carddoctor)}&cancel=0`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -25,7 +25,7 @@ const GetReservations = async (carddoctor) => {
                     resultDiv.id=`content-cite${reservation.id}`;
                     resultDiv.innerHTML = `
                     <label id="id-revervation-${reservation.id}" hidden>${reservation.id} </label>
-                    <p class="tex-cite">
+                    <p class="tex-cite" id="tex-cite${reservation.id}">
                     Fecha de la reservacion: ${reservation.dateAppoinment}<br> 
                     Especialidad medica: ${reservation.speciality}<br>
                     Cedula del medico: ${reservation.carddoctor}<br>  
@@ -38,10 +38,10 @@ const GetReservations = async (carddoctor) => {
                     </div>
                    
                     `;
-
+                 
                 const cotainerCiteProfile = document.querySelector(".cotainer-cite-profile");
                 cotainerCiteProfile.appendChild(resultDiv);
-
+              
                 const btnCancel = document.getElementById(`btn-cite-cancel-${reservation.id}`);
                 btnCancel.addEventListener("click", () => {
                     cancelReservation(reservation.id);
@@ -59,6 +59,18 @@ const GetReservations = async (carddoctor) => {
                     acceptReservation(reservation.id);
                     btnAccept.remove();
                 });
+                if(reservation.doctoraccept==1){
+                  
+                    const acceptButton = document.getElementById(`btn-cite-accept-${reservation.id}`);
+                   acceptButton.remove();
+                   const textp = document.getElementById(`tex-cite${reservation.id}`);
+                    textp.innerHTML+=" <br> Has confirmado la cita.";
+                }
+                if(reservation.accepct==1){
+                    console.log('estoy ');
+                    const textp = document.getElementById(`tex-cite${reservation.id}`);
+                    textp.innerHTML+=" <br> El paciente acepto la cita";
+                }
 
 
                 });
@@ -84,7 +96,7 @@ const cancelReservation = async (reservationId) => {
         };
 
         // Realizar la solicitud para actualizar la reserva
-        const response = await fetch(`http://localhost:3000/reservation/${reservationId}`, {
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation/${reservationId}`, {
             method: 'PATCH', // Utilizar el método PATCH para actualizar parcialmente el recurso
             headers: {
                 'Content-Type': 'application/json'
@@ -109,7 +121,7 @@ const acceptReservation = async (reservationId) => {
         };
 
         // Realizar la solicitud para actualizar la reserva
-        const response = await fetch(`http://localhost:3000/reservation/${reservationId}`, {
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation/${reservationId}`, {
             method: 'PATCH', // Utilizar el método PATCH para actualizar parcialmente el recurso
             headers: {
                 'Content-Type': 'application/json'

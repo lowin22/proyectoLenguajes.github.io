@@ -5,12 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/general.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/modal.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
-    <script src="../js/crypto-js.min.js"></script>
-    <script src="../js/login.js"></script>
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/contactus.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+   
     <title>Document</title>
 </head>
 
@@ -36,46 +35,39 @@
         <script src="./js/navbar.js"> </script>
     </header>
     <main>
-        <section>
-            <div class="content-form-login">
-                <div class="container-login-form">
-                    <h1 class="h1-form-login">Log in</h1>
-                    <form class="form-login" id="form_login" method="post">
-                        <div class="main-login-form">
-                            <input id="card" type="text" required />
-                            <span></span>
-                            <label>Cedula</label>
-                            
-                        </div>
-        
-                        <div class="main-login-form">
-                             <input id="password" type="password" required />
-                            <span></span>
-                            <label>Contraseña</label>
-        
-                        </div>
-                        <div class="pass-form">Recupera la Contraseña</div>
-                        <input type="submit" value="Log In">
-                        <div class="sigup-form-login">
-                        estas registrado?<a href="../pages/register.html">Registrate</a>
-                        </div>
-                    </form>
-                </div>
-              
+        <section class="contact">
+            <div class="contact-form">
+                <h1>Contactanos</h1>
+                <p>
+                    Puedes llamar al 3535-0952 para atencion al cliente, o escribir al 
+                    WhatsApp 8745-6553 o al correo clinicarbolsedaayuda@ucr.ac.cr
+                </p>
+                <form action="post" >
+                    <input type="text" placeholder="nombre" required>
+                    <input type="email" name="email" id="" placeholder="Correo Electronico" required>
+                    <input type="" placeholder="Escribe el motivo" required>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Describe tu problema o duda"></textarea>
+                    <input type="submit" name="" value="Enviar" class="btn" >
+                </form>
             </div>
+            <div class="contact-img">
+                <img src="../img/contacto.jpg" alt="">
+
+            </div>
+
         </section>
+      
         <!-- modal 1 -->
         <div id="myModal" class="modal">
-          <div class="modal-content">
-              <span class="close">&times;</span>
-              <div id="modal-message" class="content">
-                 
-              </div>
-          </div>
-      </div>
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modal-message" class="content">
+                   
+                </div>
+            </div>
+        </div>
         <!-- /modal 1 -->
     </main>
-
     <footer>
         <div class="footer">
                 

@@ -1,0 +1,232 @@
+
+
+
+	
+:root{
+    --principal-color: #5179F0;
+    --sedundaty-color: #51ABF0;
+     --button-color: #51F0CE;
+     --letter-color-w: white;
+     --letter-color-b: black;
+   }
+.contentcalendar {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.5;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	color: var(--letter-color-w);
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+	cursor: pointer;
+	&:focus {
+		outline: 0;
+	}
+}
+
+
+.datepicker {
+	width: 95%;
+	max-width: 350px;
+	background-color: var(--principal-color);
+	border-radius: 10px;
+	box-shadow: 0 0 2px 0 rgba(#000, .2), 0 5px 10px 0 rgba(#000, .1);
+	padding: 1rem;
+    color: var(--letter-color-w);
+}
+
+.datepicker-top {
+	margin-bottom: 1rem;
+}
+
+.btn-group {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
+	margin-top: -.5rem;
+}
+
+.tag {
+	margin-right: .5rem;
+	margin-top: .5rem;
+	border: 0;
+	background-color: var(--sedundaty-color);
+	border-radius: 10px;
+	padding: .5em .75em;
+	font-weight: 600;
+}
+
+.month-selector {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	background-color: var(--principal-color);
+	border-radius: 12px;
+	width: 2.5rem;
+	height: 2.5rem;
+	box-shadow: 0 0 2px 0 rgba(#000,.25), 0 0 10px 0 rgba(#000, .15);
+}
+
+.month-name {
+	font-weight: 600;
+}
+
+.datepicker-calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-row-gap: 1rem;
+}
+
+.day, .date {
+	justify-self: center;
+    color: var(--letter-color-w);
+}
+
+.day {
+	color: var(--letter-color-w);
+	font-size: .875em;
+	font-weight: 500;
+	justify-self: center;
+}
+
+.date {
+	border: 0;
+	padding: 0;
+	width: 2.25rem;
+	height: 2.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	font-weight: 600;
+	border: 2px solid transparent;
+	background-color: transparent;
+	cursor: pointer;
+	&:focus {
+		outline: 0;
+		color: var(--letter-color-w);
+		border: 2px solid var(--principal-color);	
+	}	
+}
+
+.faded {
+	color: var(--c-text-secondary);
+}
+
+.current-day {
+	color: var(--letter-color-w);
+	border-color: var(--sedundaty-color);
+	background-color: var(--sedundaty-color);
+	&:focus {
+		background-color: var(--sedundaty-color);
+	}
+}
+
+
+
+/* vamos a ver si funca */
+
+
+
+.content-screach{
+    border: 2px solid var(--button-color);
+    position: fixed;
+    width: 500px;
+    min-height: 150px;
+    margin-top: 100px;
+    border-radius: 8px;
+    left: 50%;/*esto lo tira a la izquierda, antes taba en la derecha*/
+    transform: translateX(-50%);/*esto es para centrar el coso en el eje y*/
+    z-index:10001;
+    flex-direction: column;
+    color: var(--letter-color-b);/*color de letra*/
+    background-color: var(--principal-color);/*color de fondo*/
+    display: none;
+}
+#x-input{
+    cursor: pointer;
+    margin: 6px 6px 0 0; /* Ajusta este margen según sea necesario */
+    display: block;
+}
+
+.content-screach .result-content{ /*el contenido de abajo*/
+    
+    min-height: 100px;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow-y: auto;
+}
+.result-content .result{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: var(--letter-color-w);
+}
+.result-content .result h3{
+    color: var(--letter-color-w);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+.result-content .result p{
+    color: var(--letter-color-w);
+    font-size: 14px;
+    font-weight: 600;
+}
+.result-content .result a{
+    border: 1px solid var(--button-color);
+    background-color: var(--letter-color-w);
+    text-decoration: none;
+    color: var(--letter-color-b);
+    border-radius: 7px;
+    height: 55px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.result-content::-webkit-scrollbar{
+    width: 6px;
+
+}
+.result-content::-webkit-scrollbar-thumb{
+   background-color: var(--letter-color-w);
+   border-radius: 4px;  
+}
+
+
+@media (max-width:770px) or (max-height:550px){
+    .content-screach-div .content-screach{
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        top: 0;
+        border: none;
+        border-radius: 0;
+        justify-content: space-between;
+    }
+    .content-screach-div .content-screach {
+        height: 100%;
+        max-height: 100%;
+    }
+}
+

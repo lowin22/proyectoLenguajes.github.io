@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const formLogin = document.getElementById("form_login");
     formLogin.addEventListener("submit", async (event) => {
@@ -59,7 +60,10 @@ const clearTextFields = () => {
 
 const getDataLogin = async (card, password) => {
     try {
-        const response = await fetch(`http://localhost:3000/data_user?card=${encodeURIComponent(card)}&password=${encodeURIComponent(password)}`);
+        var encryptedPassword =CryptoJS.SHA256(password).toString();
+                console.log(encryptedPassword);
+                console.log(password);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/data_user?card=${encodeURIComponent(card)}&encryptedPassword=${encodeURIComponent(encryptedPassword)}`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {

@@ -1,6 +1,7 @@
 const btnReservation = document.getElementById("btn-reservation");
 const resultContent = document.querySelector(".cotainer-cite-profile");
-
+const btnSignoff = document.getElementById("btn-signoff");
+const btnCalendar = document.getElementById("btn-calendar");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameProfile = document.getElementById("name-profile");
 
     const dataProfile = document.getElementById("data-profile");
-    nameProfile.textContent = `${userData.name} ${userData.last_name}`;
-    dataProfile.innerHTML = `Cedula: ${userData.card}<br>Numero de telefono: ${userData.phone_number}<br>Email: ${userData.email}`;
+    nameProfile.textContent = `${userData.name} ${userData.lastname}`;
+    dataProfile.innerHTML = `Cedula: ${userData.card}<br>Numero de telefono: ${userData.phoneNumber}<br>Email: ${userData.email}`;
     GetReservations(userData.card);
 });
 btnReservation.addEventListener("click", () => {
@@ -23,7 +24,7 @@ btnReservation.addEventListener("click", () => {
 
 const GetReservations = async (card) => {
     try {
-        const response = await fetch(`http://localhost:3000/reservation?card=${encodeURIComponent(card)}&cancel=0`);
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation?card=${encodeURIComponent(card)}&cancel=0`);
         if (response.ok) {
             const data = await response.json();
             if (data.length > 0) {
@@ -35,7 +36,7 @@ const GetReservations = async (card) => {
                     resultDiv.id=`content-cite${reservation.id}`;
                     resultDiv.innerHTML = `
                     <label id="id-revervation-${reservation.id}" hidden>${reservation.id} </label>
-                    <p class="tex-cite">
+                    <p class="tex-cite" id="tex-cite${reservation.id}">
                     Fecha de la reservacion: ${reservation.dateAppoinment}<br> 
                     Especialidad medica: ${reservation.speciality}<br>
                     Cedula del medico: ${reservation.carddoctor}<br>  
@@ -69,21 +70,33 @@ const GetReservations = async (card) => {
                     acceptReservation(reservation.id);
                     btnAccept.remove();
                 });
-
+                if(reservation.doctoraccept==1){
+                  
+                    
+                   const textp = document.getElementById(`tex-cite${reservation.id}`);
+                    textp.innerHTML+=" <br>El doctor confirmo la cita";
+                }
+                if(reservation.accepct==1){
+                   
+                    const acceptButton = document.getElementById(`btn-cite-accept-${reservation.id}`);
+                   acceptButton.remove();
+                    const textp = document.getElementById(`tex-cite${reservation.id}`);
+                    textp.innerHTML+=" <br>Has confirmado la cita.";
+                }
 
                 });
                 // Agregar eventos de clic a los elementos '.select-doctor' después de crearlos
 
 
             } else {
-                manageEventSpan('No se encontraron medicos');
+               console.log("");
             }
         } else {
-            manageEventSpan('Error al procesar la solicitud.');
+         console.log("");
         }
     } catch (error) {
-        console.error("Error al procesar la solicitud:", error);
-        manageEventSpan('Error al procesar la solicitud.');
+        console.log("");
+       
     }
 };
 const cancelReservation = async (reservationId) => {
@@ -94,7 +107,7 @@ const cancelReservation = async (reservationId) => {
         };
 
         // Realizar la solicitud para actualizar la reserva
-        const response = await fetch(`http://localhost:3000/reservation/${reservationId}`, {
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation/${reservationId}`, {
             method: 'PATCH', // Utilizar el método PATCH para actualizar parcialmente el recurso
             headers: {
                 'Content-Type': 'application/json'
@@ -119,7 +132,7 @@ const acceptReservation = async (reservationId) => {
         };
 
         // Realizar la solicitud para actualizar la reserva
-        const response = await fetch(`http://localhost:3000/reservation/${reservationId}`, {
+        const response = await fetch(`https://proyectlanguagesoneapi.onrender.com/reservation/${reservationId}`, {
             method: 'PATCH', // Utilizar el método PATCH para actualizar parcialmente el recurso
             headers: {
                 'Content-Type': 'application/json'
@@ -137,3 +150,11 @@ const acceptReservation = async (reservationId) => {
         console.error('Error al realizar la solicitud:', error);
     }
 };
+
+btnSignoff.addEventListener("click", () => {
+    localStorage.removeItem("user");
+    window.location.href = "../pages/login.html";
+});
+btnCalendar.addEventListener("click", () => {
+    window.location.href = "../pages/calendar.html";
+});
