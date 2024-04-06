@@ -31,7 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if(!isFecthValid){
             const esValue = validateDate(dateAppoinment)&&validateData(card)&&validateData(dateAppoinment)&&validateData(name)&&validateData(carddoctor);
             if (esValue) {
-              sendData({ card, name, dateAppoinment, speciality,carddoctor });
+                const cancel=0;
+                const accepct =0;
+                const doctoraccept =0;
+              sendData({ card, name, dateAppoinment, speciality,carddoctor,cancel,accepct,doctoraccept });
             } else {
               manageError("La fecha ingresada no es valida");
             }
