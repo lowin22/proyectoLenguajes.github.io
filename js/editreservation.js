@@ -65,15 +65,15 @@ const updateData = async (data, id) => {
         });
 
         if (response.ok) {
-            console.log('La reserva se actualizó correctamente');
-            // Manejar el éxito de la actualización aquí si es necesario
+           
+            manageSuccess('La reserva se actualizó correctamente');
         } else {
             console.error('Hubo un problema al actualizar la reserva');
-            // Manejar el error de la actualización aquí si es necesario
+           
         }
     } catch (error) {
         console.error('Error al enviar los datos:', error);
-        // Manejar cualquier error de la solicitud aquí si es necesario
+       
     }
 };
 
